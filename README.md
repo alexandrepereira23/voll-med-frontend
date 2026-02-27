@@ -1,73 +1,95 @@
-# React + TypeScript + Vite
+# 🏥 Voll.med - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bem-vindo ao frontend da **Voll.med**, uma plataforma moderna para gestão de clínicas médicas, agendamento de consultas e administração de profissionais de saúde.
 
-Currently, two official plugins are available:
+Este projeto foi desenvolvido com foco em performance, tipagem estática e uma experiência de usuário fluida, utilizando as tecnologias mais recentes do ecossistema React.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Tecnologias e Ferramentas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+O projeto utiliza uma stack moderna e robusta:
 
-## Expanding the ESLint configuration
+- **[React 19](https://react.dev/)**: Biblioteca principal para construção da interface.
+- **[Vite](https://vitejs.dev/)**: Ferramenta de build extremamente rápida.
+- **[TypeScript](https://www.typescriptlang.org/)**: Tipagem estática para maior segurança e produtividade.
+- **[Tailwind CSS 4](https://tailwindcss.com/)**: Estilização baseada em utilitários para um design responsivo e customizável.
+- **[React Query (TanStack Query)](https://tanstack.com/query/latest)**: Gerenciamento de estado assíncrono e cache de dados da API.
+- **[React Hook Form](https://react-hook-form.com/)** & **[Zod](https://zod.dev/)**: Validação de formulários robusta e tipada.
+- **[Lucide React](https://lucide.dev/)**: Conjunto de ícones consistentes e leves.
+- **[Axios](https://axios-http.com/)**: Cliente HTTP para consumo da API.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Funcionalidades Principais
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **🩺 Gestão de Médicos**: Listagem, cadastro e edição de profissionais com especialidades.
+- **👥 Gestão de Pacientes**: Controle completo de dados dos pacientes.
+- **📅 Agendamento de Consultas**: Fluxo intuitivo para marcar e visualizar agendas médicas.
+- **🎨 Design Responsivo**: Interface adaptável para diferentes tamanhos de tela.
+- **🛡️ Validação de Dados**: Garantia de integridade das informações via formulários.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 📁 Estrutura do Projeto
+
+A organização segue os princípios de **Features**:
+
+```text
+src/
+├── components/     # Componentes globais e reutilizáveis
+├── features/       # Módulos específicos (consultas, medicos, pacientes)
+│   └── [feature]/  # Componentes, hooks e serviços locais
+├── layouts/        # Estruturas de página (Header, Footer, Sidebar)
+├── lib/            # Configurações de bibliotecas externas (Axios, QueryClient)
+├── routes/         # Definição das rotas da aplicação
+└── services/       # Serviços globais de API
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚙️ Instalação e Uso
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Pré-requisitos
+- [Node.js](https://nodejs.org/) (versão 18 ou superior)
+- [NPM](https://www.npmjs.com/) ou [Yarn](https://yarnpkg.com/)
+
+### Passos
+
+1. **Clonar o repositório:**
+   ```bash
+   git clone https://github.com/seu-usuario/api-voll.med.git
+   cd api-voll.med/voll-med-frontend
+   ```
+
+2. **Instalar dependências:**
+   ```bash
+   npm install
+   ```
+
+3. **Configurar variáveis de ambiente:**
+   Crie um arquivo `.env` na raiz do projeto com a URL da API:
+   ```env
+   VITE_API_URL=http://localhost:8080
+   ```
+
+4. **Executar em modo de desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
+   O projeto estará disponível em `http://localhost:5173`.
+
+---
+
+## 📜 Scripts Disponíveis
+
+- `npm run dev`: Inicia o servidor de desenvolvimento.
+- `npm run build`: Gera a versão de produção otimizada.
+- `npm run lint`: Executa a verificação do ESLint.
+- `npm run preview`: Visualiza o build de produção localmente.
+
+---
+
+## 📄 Licença
+
+Este projeto é para fins educacionais. Sinta-se à vontade para explorar e aprender!
